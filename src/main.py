@@ -2,6 +2,7 @@ from __future__ import division
 from __future__ import print_function
 
 import sys
+import os
 import argparse
 import cv2
 import editdistance
@@ -12,11 +13,12 @@ from SamplePreprocessor import preprocess
 
 class FilePaths:
 	"filenames and paths to data"
-	fnCharList = '../model/charList.txt'
-	fnAccuracy = '../model/accuracy.txt'
-	fnTrain = '../data/'
-	fnInfer = '../data/test.png'
-	fnCorpus = '../data/corpus.txt'
+	my_path = os.path.abspath(os.path.dirname(__file__))
+	fnCharList = os.path.join(my_path,"../model/charList.txt")
+	fnAccuracy = os.path.join(my_path,"../model/accuracy.txt")
+	fnTrain = os.path.join(my_path,'../data/')
+	fnInfer = os.path.join(my_path,'../data/test.png')
+	fnCorpus = os.path.join(my_path,'../data/corpus.txt')
 
 
 def train(model, loader):
